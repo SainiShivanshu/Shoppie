@@ -23,7 +23,7 @@
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        app:backgroundColor="@color/purple_200"
+        app:backgroundColor="@color/colorPrimary"
         app:iconMargin="7dp"
         app:iconSize="25dp"
         app:indicatorRadius="21dp"

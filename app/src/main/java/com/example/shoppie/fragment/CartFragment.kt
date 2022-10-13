@@ -19,6 +19,7 @@ import com.example.shoppie.roomdb.ProductModel
 class CartFragment : Fragment() {
 
     private lateinit var binding:FragmentCartBinding
+    private lateinit var list : ArrayList<String>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,10 +36,14 @@ class CartFragment : Fragment() {
 
 
         val dao = AppDatabase.getInstance(requireContext()).productDao()
-
+list=ArrayList()
         dao.getAllProducts().observe(requireActivity()){
             binding.cartRecycler.adapter=CartAdapter(requireContext(),it)
-            
+            list.clear()
+            for (data in it){
+                list.add(data.productId)
+            }
+
             totalCost(it)
         }
 
@@ -56,6 +61,7 @@ class CartFragment : Fragment() {
         binding.checkout.setOnClickListener {
             val intent = Intent(context, AddressActivity::class.java)
             intent.putExtra("totalCost",total)
+            intent.putExtra("productIds",list)
            startActivity(intent)
         }
     }

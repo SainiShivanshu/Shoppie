@@ -44,7 +44,16 @@ class OTPActivity : AppCompatActivity() {
             if(it.isSuccessful){
                 builder.dismiss()
 
-               startActivity(Intent(this,MainActivity::class.java))
+
+                val preferences = this.getSharedPreferences("user", MODE_PRIVATE)
+                val editor = preferences.edit()
+
+                editor.putString("number", intent.getStringExtra("number"))
+
+                editor.apply()
+
+
+                startActivity(Intent(this,MainActivity::class.java))
                 finish()
 
             }
