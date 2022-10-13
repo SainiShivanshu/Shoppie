@@ -90,7 +90,7 @@ class CheckoutActivity : AppCompatActivity() , PaymentResultListener {
         val key = firestore.document().id
         data["orderId"]=key
 
-        firestore.add(data).addOnSuccessListener {
+        firestore.document(key).set(data).addOnSuccessListener {
             Toast.makeText(this,"Ordered Placed",Toast.LENGTH_SHORT).show()
             startActivity(Intent(this,MainActivity::class.java))
             finish()
