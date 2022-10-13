@@ -1,5 +1,6 @@
 package com.example.shoppie.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,7 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.example.shoppie.R
+import com.example.shoppie.activity.AddressActivity
+import com.example.shoppie.activity.CategoryActivity
+import com.example.shoppie.activity.ProductDetailActivity
+import com.example.shoppie.adapter.CartAdapter
 import com.example.shoppie.databinding.FragmentCartBinding
+import com.example.shoppie.roomdb.AppDatabase
+import com.example.shoppie.roomdb.ProductModel
 
 class CartFragment : Fragment() {
 
@@ -27,7 +34,30 @@ class CartFragment : Fragment() {
         editor.apply()
 
 
+        val dao = AppDatabase.getInstance(requireContext()).productDao()
+
+        dao.getAllProducts().observe(requireActivity()){
+            binding.cartRecycler.adapter=CartAdapter(requireContext(),it)
+            
+            totalCost(it)
+        }
+
         return binding.root
+    }
+
+    private fun totalCost(data: List<ProductModel>?) {
+        var total =0
+    for(item in data!!){
+        total += item.productSp!!.toInt()
+    }
+        binding.textView12.text="No. of items = ${data.size}"
+        binding.textView13.text="Total Cost   = ${total}"
+
+        binding.checkout.setOnClickListener {
+            val intent = Intent(context, AddressActivity::class.java)
+            intent.putExtra("totalCost",total)
+           startActivity(intent)
+        }
     }
 
 
