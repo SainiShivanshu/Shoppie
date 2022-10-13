@@ -60,8 +60,13 @@ list=ArrayList()
 
         binding.checkout.setOnClickListener {
             val intent = Intent(context, AddressActivity::class.java)
-            intent.putExtra("totalCost",total)
-            intent.putExtra("productIds",list)
+            //            intent.putExtra("totalCost",total.toString())
+//            intent.putStringArrayListExtra("productIds",list)
+            val b =Bundle()
+            b.putStringArrayList("productIds",list)
+            b.putString("totalCost",total.toString())
+
+            intent.putExtras(b)
            startActivity(intent)
         }
     }

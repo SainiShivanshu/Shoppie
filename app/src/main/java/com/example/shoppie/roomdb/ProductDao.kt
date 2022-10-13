@@ -15,7 +15,10 @@ interface ProductDao {
 
     @Query("SELECT * FROM products")
     fun getAllProducts() :LiveData<List<ProductModel>>
+
+
     // :id matlab agli line mein jo likhi vo
+
     @Query("SELECT *FROM products WHERE productId=:id")
     fun isExit(id : String) : ProductModel
 }

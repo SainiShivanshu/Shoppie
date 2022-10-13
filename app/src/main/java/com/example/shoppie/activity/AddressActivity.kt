@@ -13,12 +13,14 @@ import com.google.firebase.ktx.Firebase
 class AddressActivity : AppCompatActivity() {
     private lateinit var binding : ActivityAddressBinding
     private lateinit var preferences : SharedPreferences
+
+    private lateinit var totalCost : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityAddressBinding.inflate(layoutInflater)
         setContentView(binding.root)
         preferences=this.getSharedPreferences("user", MODE_PRIVATE)
-
+    totalCost= intent.getStringExtra("totalCost")!!
         loadUserInfo()
 
         binding.proceed.setOnClickListener {
@@ -54,8 +56,13 @@ class AddressActivity : AppCompatActivity() {
         Firebase.firestore.collection("users")
             .document(preferences.getString("number","")!!)
             .update(map).addOnSuccessListener {
+                val b =Bundle()
+                b.putStringArrayList("productIds",intent.getStringArrayListExtra("productIds"))
+                b.putString("totalCost",totalCost)
                 val intent = Intent(this, CheckoutActivity::class.java)
-                intent.putExtra("productIds",intent.getStringArrayExtra("productIds"))
+                intent.putExtras(b)
+
+
             startActivity(intent)
             }
             .addOnFailureListener {
