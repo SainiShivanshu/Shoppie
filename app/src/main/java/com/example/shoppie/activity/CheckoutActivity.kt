@@ -22,7 +22,8 @@ class CheckoutActivity : AppCompatActivity() , PaymentResultListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_checkout)
-
+        supportActionBar?.title="Checkout"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val checkout = Checkout()
         val price = intent.getStringExtra("totalCost")
         // apart from setting it in AndroidManifest.xml, keyId can also be set
@@ -102,5 +103,9 @@ class CheckoutActivity : AppCompatActivity() , PaymentResultListener {
 
     override fun onPaymentError(p0: Int, p1: String?) {
         Toast.makeText(this,"Payment Failed",Toast.LENGTH_SHORT).show()
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }

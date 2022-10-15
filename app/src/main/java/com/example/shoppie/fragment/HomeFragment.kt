@@ -29,7 +29,7 @@ private lateinit var binding: FragmentHomeBinding
     ): View? {
         // Inflate the layout for this fragment
         binding=FragmentHomeBinding.inflate(layoutInflater)
-
+        (activity as AppCompatActivity).supportActionBar?.title="Shoppie"
         val preference = requireContext().getSharedPreferences("info", AppCompatActivity.MODE_PRIVATE)
         if(preference.getBoolean("isCart",false)){
             findNavController().navigate(R.id.action_homeFragment_to_cartFragment)

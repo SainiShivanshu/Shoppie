@@ -54,7 +54,7 @@ class OTPActivity : AppCompatActivity() {
 
 
                 startActivity(Intent(this,MainActivity::class.java))
-                finish()
+                finishAffinity()
 
             }
             else{

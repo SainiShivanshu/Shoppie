@@ -29,6 +29,7 @@ class CartFragment : Fragment() {
         // Inflate the layout for this fragment
 
         binding=FragmentCartBinding.inflate(layoutInflater)
+        (activity as AppCompatActivity).supportActionBar?.title="Cart"
         val preference = requireContext().getSharedPreferences("info", AppCompatActivity.MODE_PRIVATE)
         val editor = preference.edit()
         editor.putBoolean("isCart",false)

@@ -3,12 +3,18 @@ package com.example.shoppie
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import com.example.shoppie.activity.AboutUs
 import com.example.shoppie.activity.LoginActivity
+import com.example.shoppie.activity.ProfileActivity
+import com.example.shoppie.databinding.ActivityLoginBinding
 import com.example.shoppie.databinding.ActivityMainBinding
 import com.example.shoppie.fragment.CartFragment
 import com.google.firebase.auth.FirebaseAuth
@@ -71,4 +77,37 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
     }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+        menuInflater.inflate(R.menu.menu,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.profile-> {
+
+                var intent =Intent(this, ProfileActivity::class.java)
+
+                startActivity(intent)
+            }
+            R.id.About-> {
+
+                var intent =Intent(this, AboutUs::class.java)
+
+                startActivity(intent)
+            }
+            R.id.logout-> {
+                val user = FirebaseAuth.getInstance()
+                user.signOut()
+
+                var intent =Intent(this, LoginActivity::class.java)
+
+                startActivity(intent)
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }

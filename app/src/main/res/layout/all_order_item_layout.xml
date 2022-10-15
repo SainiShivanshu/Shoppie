@@ -2,54 +2,66 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="5dp"
     android:padding="12dp">
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Product Name"
-            android:textStyle="bold"
-            android:textSize="22sp"
-            android:textColor="@color/black"
-            android:id="@+id/productTitle"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Price : 1200"
+        app:cardCornerRadius="7dp"
+        app:cardElevation="5dp"
+        android:elevation="3dp">
 
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:id="@+id/productPrice"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ordered"
-       android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:id="@+id/productStatus"/>
         <LinearLayout
+            android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="2">
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="0dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:text="Product Name"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="@color/black"
+                android:id="@+id/productTitle"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price : 1200"
 
-                android:text="Cancel"
-                android:layout_marginRight="6dp"
-                android:textAllCaps="false"
-                android:id="@+id/cancelButton"/>
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:id="@+id/productPrice"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ordered"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:id="@+id/productStatus"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
 
+                android:weightSum="2">
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+
+                    android:text="Cancel"
+                    android:layout_marginRight="6dp"
+                    android:textAllCaps="false"
+                    android:id="@+id/cancelButton"/>
+
+
+            </LinearLayout>
 
         </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-    </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

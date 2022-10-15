@@ -13,8 +13,8 @@
         />
     <item
         android:id="@+id/profileFragment"
-        android:title="More"
-        android:icon="@drawable/more"
+        android:title="Order Status"
+        android:icon="@drawable/ic_order_status"
         />
 
 </menu>

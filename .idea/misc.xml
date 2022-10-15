@@ -4,12 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/drawable/ic_login.xml" value="0.1305" />
+        <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/drawable/tv_background.xml" value="0.1" />
+        <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/layout/activity_about_us.xml" value="0.23369565217391305" />
         <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/layout/activity_address.xml" value="0.2318840579710145" />
         <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/layout/activity_category.xml" value="0.12158054711246201" />
         <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/layout/activity_login.xml" value="0.24094202898550723" />
         <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/layout/activity_otpactivity.xml" value="0.2359375" />
         <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/layout/activity_product_detail.xml" value="0.24094202898550723" />
+        <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/layout/activity_profile.xml" value="0.25" />
         <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/layout/activity_register.xml" value="0.24094202898550723" />
         <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/layout/all_order_item_layout.xml" value="0.25" />
@@ -17,10 +20,12 @@
         <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/layout/fragment_home.xml" value="0.24094202898550723" />
         <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/layout/fragment_profile.xml" value="0.2359375" />
         <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/layout/item_category_layout.xml" value="0.24094202898550723" />
+        <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/layout/item_category_product_layout.xml" value="0.25" />
         <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/layout/layout_cart_item.xml" value="0.264" />
         <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/layout/layout_category_item.xml" value="0.24094202898550723" />
         <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/layout/layout_product_item.xml" value="0.264" />
         <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/menu/bottom_nav.xml" value="0.25" />
+        <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/menu/menu.xml" value="0.16203703703703703" />
         <entry key="..\:/Users/shivanshu/AndroidStudioProjects/Shoppie/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.113" />
       </map>
     </option>

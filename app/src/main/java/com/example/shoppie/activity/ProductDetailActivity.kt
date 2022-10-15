@@ -24,7 +24,7 @@ class ProductDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityProductDetailBinding.inflate(layoutInflater)
-        
+
         getProductDetails(intent.getStringExtra("id"))
         setContentView(binding.root)
     }
@@ -37,14 +37,15 @@ class ProductDetailActivity : AppCompatActivity() {
                      val name = it.get("productName")
                      val productSp = it.get("productSp")
                      val productDesc = it.get("productDescription")
-
-                     binding.textView7.text=it.getString("productName")
-                     binding.textView8.text=it.getString("productSP")
+                     supportActionBar?.title= name.toString()
+                     supportActionBar?.setDisplayHomeAsUpEnabled(true)
+                         binding.textView7.text=it.getString("productName")
+                     binding.textView8.text="₹ "+ productSp
                      binding.textView9.text=it.getString("productDescription")
 
                      val slideList = ArrayList<SlideModel>()
                      for (data in list){
-                         slideList.add(SlideModel(data,ScaleTypes.CENTER_CROP))
+                         slideList.add(SlideModel(data,ScaleTypes.CENTER_INSIDE))
                      }
 
           cartAction(proId,name,productSp,it.getString("productCoverImg"))
@@ -100,6 +101,9 @@ class ProductDetailActivity : AppCompatActivity() {
         startActivity(Intent(this,MainActivity::class.java))
         finish()
     }
-
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
+    }
 
 }

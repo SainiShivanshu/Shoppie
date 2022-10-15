@@ -29,7 +29,7 @@ class CartAdapter(val context: Context,val list: List<ProductModel>)
         Glide.with(context).load(list[position].productImage).into(holder.binding.imageView4)
 
         holder.binding.textView11.text=list[position].productName
-        holder.binding.textView12.text=list[position].productSp
+        holder.binding.textView12.text="₹ "+list[position].productSp
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context,ProductDetailActivity::class.java)

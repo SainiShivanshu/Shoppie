@@ -23,6 +23,7 @@ class ProfileFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding=FragmentProfileBinding.inflate(layoutInflater)
+        (activity as AppCompatActivity).supportActionBar?.title="Order Status"
         list= ArrayList()
         val preferences = requireContext().getSharedPreferences("user", AppCompatActivity.MODE_PRIVATE)
 

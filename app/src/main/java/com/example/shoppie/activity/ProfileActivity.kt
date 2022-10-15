@@ -1,30 +1,28 @@
 package com.example.shoppie.activity
 
-import android.content.Intent
+
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.shoppie.R
-import com.example.shoppie.databinding.ActivityAddressBinding
+import androidx.appcompat.app.AppCompatActivity
+import com.example.shoppie.databinding.ActivityProfileBinding
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class AddressActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityAddressBinding
+
+class ProfileActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityProfileBinding
     private lateinit var preferences : SharedPreferences
 
-    private lateinit var totalCost : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=ActivityAddressBinding.inflate(layoutInflater)
+        binding=ActivityProfileBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
-        supportActionBar?.title="Delivery Address"
+supportActionBar?.title="Profile"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         preferences=this.getSharedPreferences("user", MODE_PRIVATE)
-    totalCost= intent.getStringExtra("totalCost")!!
         loadUserInfo()
-
         binding.proceed.setOnClickListener {
             validateData(
                 binding.userName.text.toString(),
@@ -35,21 +33,19 @@ class AddressActivity : AppCompatActivity() {
                 binding.pincode.text.toString()
             )
         }
-
     }
-
     private fun validateData(name: String, number: String, houseNo: String, city: String, state: String, pinCode: String) {
-         if (number.isEmpty()||name.isEmpty()||houseNo.isEmpty()||city.isEmpty()||state.isEmpty()||pinCode.isEmpty()){
-             Toast.makeText(this,"Please fill all fields",Toast.LENGTH_SHORT).show()
+        if (number.isEmpty()||name.isEmpty()||houseNo.isEmpty()||city.isEmpty()||state.isEmpty()||pinCode.isEmpty()){
+            Toast.makeText(this,"Please fill all fields", Toast.LENGTH_SHORT).show()
 
-         }
+        }
         else{
-            storeData(houseNo,city,state,pinCode)
-         }
+            storeData(name,houseNo,city,state,pinCode)
+        }
     }
-
-    private fun storeData( houseNo: String, city: String, state: String, pinCode: String) {
-  val map = hashMapOf<String,Any>()
+    private fun storeData( name:String, houseNo: String, city: String, state: String, pinCode: String) {
+        val map = hashMapOf<String,Any>()
+        map["userName"]=name
         map["houseNo"]=houseNo
         map["city"]=city
         map["state"]=state
@@ -58,20 +54,12 @@ class AddressActivity : AppCompatActivity() {
         Firebase.firestore.collection("users")
             .document(preferences.getString("number","")!!)
             .update(map).addOnSuccessListener {
-                val b =Bundle()
-                b.putStringArrayList("productIds",intent.getStringArrayListExtra("productIds"))
-                b.putString("totalCost",totalCost)
-                val intent = Intent(this, CheckoutActivity::class.java)
-                intent.putExtras(b)
-
-
-            startActivity(intent)
+                Toast.makeText(this,"Profile Updated!!",Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener {
                 Toast.makeText(this,"Something Went Wrong",Toast.LENGTH_SHORT).show()
             }
     }
-
     private fun loadUserInfo() {
 
         Firebase.firestore.collection("users")
@@ -85,7 +73,6 @@ class AddressActivity : AppCompatActivity() {
                 binding.pincode.setText(it.getString("pinCode"))
             }
     }
-
     override fun onSupportNavigateUp(): Boolean {
         finish()
         return true

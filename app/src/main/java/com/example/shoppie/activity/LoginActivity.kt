@@ -1,11 +1,11 @@
 package com.example.shoppie.activity
 
+import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.example.shoppie.R
+import androidx.appcompat.app.AppCompatActivity
 import com.example.shoppie.databinding.ActivityLoginBinding
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
@@ -14,13 +14,16 @@ import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import java.util.concurrent.TimeUnit
 
+
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding:ActivityLoginBinding
     private lateinit var auth:FirebaseAuth
     private lateinit var verificationId:String
     private lateinit var dialog :AlertDialog
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding=ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -75,6 +78,7 @@ class LoginActivity : AppCompatActivity() {
                     val intent = Intent (this@LoginActivity,OTPActivity::class.java)
                     intent.putExtra("verificationId",p0)
                     intent.putExtra("number",binding.userNumber.text.toString())
+
                     startActivity(intent)
 
                 }
@@ -82,3 +86,5 @@ class LoginActivity : AppCompatActivity() {
                 PhoneAuthProvider.verifyPhoneNumber(options)
     }
 }
+
+
