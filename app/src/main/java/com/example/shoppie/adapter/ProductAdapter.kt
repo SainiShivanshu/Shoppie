@@ -81,9 +81,6 @@ class ProductAdapter(val context: Context, val list: ArrayList<AddProductModel>)
     private fun cartAction(binding: LayoutProductItemBinding, productId: String?, productName: String?, productSp: String?, productCoverImg: String?) {
         val productDao = AppDatabase.getInstance(context).productDao()
 
-
-
-
             if(productDao.isExit(productId!!)!=null){
                 openCart()
             }

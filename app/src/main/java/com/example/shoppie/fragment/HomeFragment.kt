@@ -1,5 +1,6 @@
 package com.example.shoppie.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,8 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.shoppie.R
+import com.example.shoppie.activity.SeeAllCategoryActivity
+import com.example.shoppie.activity.SeeAllProductActivity
 import com.example.shoppie.adapter.CategoryAdapter
 import com.example.shoppie.adapter.ProductAdapter
 import com.example.shoppie.databinding.FragmentHomeBinding
@@ -37,6 +40,15 @@ private lateinit var binding: FragmentHomeBinding
         getCategories()
         getSliderImage()
         getProducts()
+
+        binding.SeeAllProduct.setOnClickListener {
+            startActivity(Intent(requireContext(),SeeAllProductActivity::class.java))
+
+        }
+        binding.SeeAllCategory.setOnClickListener {
+            startActivity(Intent(requireContext(),SeeAllCategoryActivity::class.java))
+        }
+
         return binding.root
     }
 
